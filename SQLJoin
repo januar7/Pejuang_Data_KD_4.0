@@ -1,0 +1,66 @@
+-- Membuat Tabel Db_Mahasiswa
+CREATE TABLE Db_Mahasiswa (
+	NIM Varchar (10),
+	Nama Varchar (30)
+)
+-- Membuat Tabel Db_Asal
+CREATE TABLE Db_Asal (
+	NIM Varchar(10),
+	AsalKota Varchar(15))
+	
+-- Memasukkan input data ke tabel Db_Mahasiswa 
+INSERT INTO Db_Mahasiswa (NIM,Nama)
+VALUES ('2100015049','Wisnu Catur R'),
+	   ('2100015041','Sindy Mei Marantika'),
+	   ('2215015035','Hasan Darmawan'),
+	   ('2100015051','Saiful Andika')
+	   
+-- Memasukkan input data NULL(kosong) ke tabel Db_Mahasiswa	   
+INSERT INTO Db_Mahasiswa (NIM)
+VALUES ('1800015053'),
+	   ('2100015037')
+
+-- Memasukkan input data ke tabel Db_Asal	   
+INSERT INTO Db_Asal (NIM,AsalKota)
+VALUES ('2100015049','Pasuruan'),
+	   ('2100015041','Oku Timur'),
+	   ('1800015053','Ciamis'),
+	   ('2100015037','Bandung'),
+	   ('2100015050','Kudus'),
+	   ('2100015002','Bogor')
+	   
+-- Memasukkan input data NULL(Kosong) ke tabel Db_Asal	   
+INSERT INTO Db_Asal (NIM)
+VALUES ('2200015023'),
+	   ('2200015012')
+	   
+	   
+-- Menampilkan Tabel Db_Mahasiswa dan Db_Asal 	   
+SELECT * FROM Db_Mahasiswa
+SELECT * FROM Db_Asal
+
+-- INNER JOIN
+SELEct m.NIM, m.Nama, a.AsalKota
+FROM db_Mahasiswa m
+INNER JOIN db_Asal a
+on m.NIM =a.NIM
+ 
+
+-- LEFT JOIN 
+SELEct m.NIM, m.Nama, a.AsalKota
+FROM db_Mahasiswa m
+LEFT JOIN db_Asal a
+on m.NIM =a.NIM 
+
+-- RIGHT JOIN 
+SELECT m.NIM, m.Nama, a.AsalKota
+FROM Db_Mahasiswa m
+RIGHT JOIN Db_Asal a
+ON m.NIM =a.NIM
+
+-- ORDER(mengurutkan) DESCENDING dengan INNER JOIN
+SELECT m.NIM, m.Nama, a.Asalkota
+FROM Db_Mahasiswa m
+INNER JOIN Db_Asal a 
+ON m.NIM = a.NIM
+ORDER BY a.AsalKota DESC 

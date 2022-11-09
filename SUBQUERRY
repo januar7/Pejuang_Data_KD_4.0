@@ -1,0 +1,43 @@
+-- Memubuat Tabel
+CREATE TABLE MK_Kalkulus  (
+	NIM  VARCHAR(10),Nama VARCHAR(30),
+	UTS INTEGER,
+	UAS INTEGER
+	)
+--Menginputkan Data
+INSERT INTO MK_Kalkulus (NIM,Nama,UTS,UAS)
+VALUES("2100015049","Wisnu Catur R", 70 ,90),
+	   ("2100015041 ","Sindy Mei Marantika",70,70),
+	   ("2100015006","Januar NUr Rasyid",60,70),
+	   ("2100015037", "Lisa Nessa Safitri", 80,80)
+
+-- Menampilkan Tbel
+SELECT * FROM MK_Kalkulus
+
+-- Menambahkan kolom baru
+-- ALTER TABLE MK_Kalkulus  ADD Nilai_Akhir INTEGER (m.UAS+m.UTS)/2
+ALTER TABLE MK_Kalkulus  drop Nilai_Akhir
+-- Menghapus kolom 
+-- 
+SELECT *,((UTS+UAS)/2) Nilai_Akhir  FROM MK_Kalkulus
+
+-- Rata-rata
+SELECT AVG(((UTS+UAS)/2)) FROM MK_Kalkulus
+
+-- menampilkan data diatas rata-tata = 73.75
+SELECT *,((UTS+UAS)/2) Nilai_Akhir  FROM MK_Kalkulus
+WHERE  Nilai_Akhir > 73.75
+
+--Input data tambahan
+INSERT INTO MK_Kalkulus (NIM,Nama,UTS,UAS)
+Values ("2215015035","Hasan Darmawan",40,40)
+
+-- melihat data
+SELECT *,((UTS+UAS)/2) Nilai_Akhir  FROM MK_Kalkulus
+
+-- Rata-rata nilai akhir
+SELECT AVG(((UTS+UAS)/2)) FROM MK_Kalkulus
+
+--Sub Query menampilkan data lebih dari rata-rata
+SELECT *,((UTS+UAS)/2) Nilai_Akhir  FROM MK_Kalkulus
+WHERE Nilai_Akhir > SELECT ()
